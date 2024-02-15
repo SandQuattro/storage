@@ -1,10 +1,13 @@
+![](https://community.alteryx.com/t5/image/serverpage/image-id/256457i72705B6D0ABAE7D6?v=v2)
+
 # Storage API
+
 #### Version 1.0
 
 ## Common
 
 ### About service
-The Storage API (here and after referred to as *API*) provides a set of methods necessary for multiple file uploading using Websocket following by transferring files chunks to AWS S3-like object storage for multipart file upload processing.
+The Storage API (here and after referred to as *API*) provides a set of methods necessary for multiple file uploading using Websocket following by transferring files chunks to AWS S3-like object storage or multipart file upload processing.
 
 
 ### Technologies:
