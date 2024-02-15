@@ -1,0 +1,24 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "admin"
+    volumes:
+      - ~/docker/volumes/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  minio:
+    image: quay.io/minio/minio
+    ports:
+      - "5443:5443"
+      - "5444:5444"
+    user: "${UID}:${GID}"
+    environment:
+      MINIO_ROOT_USER: "minio"
+      MINIO_ROOT_PASSWORD: "minioadmin"
+    volumes:
+      - ~/minio/data:/data
+    command: server /data --address ":5443" --console-address ":5444"
