@@ -131,7 +131,8 @@ START:
 	// MAIN DECISION POINT
 	// multipart upload requires at least 5MB
 	// EACH PART SHOULD BE AT LEAST 5MB !!!
-	if header.Size < 5*1024*1024 {
+	//  (1 MB = 2^20 bytes = 1 << 20 bytes).
+	if header.Size < 5<<20 {
 		buf := make([]byte, 0, header.Size)
 		// грузим файл в s3 через обычный метод
 		for {
