@@ -1,6 +1,10 @@
 package app
 
 import (
+	"errors"
+	"net/http"
+	"strings"
+
 	"demo-storage/internal/app/endpoint/buckets"
 	"demo-storage/internal/app/endpoint/download"
 	"demo-storage/internal/app/endpoint/objects"
@@ -9,7 +13,7 @@ import (
 	wsupload "demo-storage/internal/app/endpoint/upload/multipartws"
 	"demo-storage/internal/app/mv"
 	minio "demo-storage/internal/app/service"
-	"errors"
+
 	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
 	"github.com/gurkankaymak/hocon"
 	"github.com/jmoiron/sqlx"
@@ -17,8 +21,6 @@ import (
 	"github.com/labstack/echo-contrib/pprof"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"net/http"
-	"strings"
 )
 
 type App struct {
@@ -87,7 +89,8 @@ func New(config *hocon.Config, port string, access string, secret string, db *sq
 			},
 			Handler: func(c echo.Context, reqBody, resBody []byte) {
 				c.Logger().Debug("Response: " + string(resBody))
-			}}))
+			},
+		}))
 
 	// Routes
 	a.Echo.GET("/", a.root.RootHandler)

@@ -2,6 +2,7 @@ package interfaces
 
 import (
 	"database/sql"
+
 	"demo-storage/internal/app/structs"
 )
 

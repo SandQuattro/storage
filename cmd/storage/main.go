@@ -1,21 +1,22 @@
 package main
 
 import (
+	"flag"
+	"fmt"
+	"log"
+	"os"
+	"runtime"
+
 	"demo-storage/internal/config"
 	"demo-storage/internal/db"
 	"demo-storage/internal/logging"
 	"demo-storage/internal/pkg/app"
 	"demo-storage/internal/utils"
 	"demo-storage/internal/utils/gs"
-	"flag"
-	"fmt"
+
 	"github.com/LogDoc-org/logdoc-go-appender/common"
 	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
 	"github.com/jmoiron/sqlx"
-	"log"
-	"os"
-
-	"runtime"
 )
 
 func main() {

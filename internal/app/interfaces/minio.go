@@ -1,9 +1,10 @@
 package interfaces
 
 import (
+	"mime/multipart"
+
 	"demo-storage/internal/app/structs"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"mime/multipart"
 )
 
 type MinioService interface {

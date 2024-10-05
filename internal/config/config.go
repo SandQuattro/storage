@@ -1,8 +1,9 @@
 package config
 
 import (
-	"github.com/gurkankaymak/hocon"
 	"log"
+
+	"github.com/gurkankaymak/hocon"
 )
 
 var config *hocon.Config

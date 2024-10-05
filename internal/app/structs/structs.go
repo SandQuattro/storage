@@ -2,6 +2,7 @@ package structs
 
 import (
 	"database/sql"
+
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 

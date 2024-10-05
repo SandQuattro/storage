@@ -5,11 +5,12 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"fmt"
-	"github.com/golang-jwt/jwt"
-	"github.com/gurkankaymak/hocon"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/golang-jwt/jwt"
+	"github.com/gurkankaymak/hocon"
 )
 
 func ValidateToken(tokenStr string, config *hocon.Config) (bool, error) {
@@ -22,7 +23,6 @@ func ValidateToken(tokenStr string, config *hocon.Config) (bool, error) {
 		}
 		return publicKey, nil
 	})
-
 	if err != nil {
 		return false, err
 	}

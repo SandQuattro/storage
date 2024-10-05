@@ -1,10 +1,11 @@
 package download
 
 import (
-	"demo-storage/internal/app/interfaces"
-	"github.com/labstack/echo/v4"
 	"io"
 	"net/http"
+
+	"demo-storage/internal/app/interfaces"
+	"github.com/labstack/echo/v4"
 )
 
 type Endpoint struct {

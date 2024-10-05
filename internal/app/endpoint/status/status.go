@@ -1,11 +1,12 @@
 package status
 
 import (
+	"net/http"
+
 	"demo-storage/internal/app/interfaces"
 	"demo-storage/internal/app/repository"
 	"github.com/jmoiron/sqlx"
 	"github.com/labstack/echo/v4"
-	"net/http"
 )
 
 type Endpoint struct {

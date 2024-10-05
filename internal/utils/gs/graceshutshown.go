@@ -2,10 +2,11 @@ package gs
 
 import (
 	"context"
-	"demo-storage/internal/pkg/app"
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
 	"os"
 	"os/signal"
+
+	"demo-storage/internal/pkg/app"
+	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
 )
 
 func GraceShutdown(app *app.App) {

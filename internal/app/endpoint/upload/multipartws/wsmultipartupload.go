@@ -1,22 +1,24 @@
 package multipartws
 
 import (
-	"demo-storage/internal/app/interfaces"
-	"demo-storage/internal/app/structs"
 	"encoding/json"
 	"errors"
 	"fmt"
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
-	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/gorilla/websocket"
-	"github.com/gurkankaymak/hocon"
-	"github.com/labstack/echo/v4"
 	"net/http"
 	"slices"
 	"sort"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"demo-storage/internal/app/interfaces"
+	"demo-storage/internal/app/structs"
+
+	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/gorilla/websocket"
+	"github.com/gurkankaymak/hocon"
+	"github.com/labstack/echo/v4"
 )
 
 type Endpoint struct {
@@ -56,10 +58,10 @@ func (e *Endpoint) WebSocketUploadHandler(ctx echo.Context) error { // Source
 	// A CheckOrigin function should carefully validate the request origin to
 	// prevent cross-site request forgery.
 	upgrader.CheckOrigin = func(r *http.Request) bool {
-		//logger.Debug("WebSocketUploadHandler > CheckOrigin > Origin:", r.Header.Get("Origin"))
+		// logger.Debug("WebSocketUploadHandler > CheckOrigin > Origin:", r.Header.Get("Origin"))
 		allowedOrigins := []string{"localhost:3000", e.config.GetString("server.address")}
 		return slices.Contains(allowedOrigins, r.Header.Get("Origin"))
-		//return true
+		// return true
 	}
 
 	ws, err = upgrader.Upgrade(ctx.Response(), ctx.Request(), nil)
@@ -185,10 +187,10 @@ START:
 		logger.Debug(fmt.Sprintf("Multipart upload started. File name:%s, Size:%d bytes", header.Filename, header.Size))
 		logger.Debug("Ready for receiving file chunks...")
 
-		var ch = make(chan structs.PartUploadResult)
-		var wg = sync.WaitGroup{}
+		ch := make(chan structs.PartUploadResult)
+		wg := sync.WaitGroup{}
 		var completedParts []*s3.CompletedPart
-		var partNum = 1
+		partNum := 1
 		var cnt int64 = 0
 
 		// Инициируем S3 Multipart Upload сессию

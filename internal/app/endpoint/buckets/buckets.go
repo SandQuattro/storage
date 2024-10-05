@@ -1,9 +1,10 @@
 package buckets
 
 import (
+	"net/http"
+
 	"demo-storage/internal/app/interfaces"
 	"github.com/labstack/echo/v4"
-	"net/http"
 )
 
 type Endpoint struct {

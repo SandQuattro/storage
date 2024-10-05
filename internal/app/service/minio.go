@@ -2,9 +2,13 @@ package minio
 
 import (
 	"bytes"
+	"fmt"
+	"mime/multipart"
+	"time"
+
 	"demo-storage/internal/app/repository"
 	"demo-storage/internal/app/structs"
-	"fmt"
+
 	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
@@ -13,8 +17,6 @@ import (
 	"github.com/gurkankaymak/hocon"
 	"github.com/jmoiron/sqlx"
 	"github.com/labstack/gommon/log"
-	"mime/multipart"
-	"time"
 )
 
 type MinioService struct {

@@ -1,9 +1,10 @@
 package logging
 
 import (
+	"net"
+
 	"demo-storage/internal/config"
 	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
-	"net"
 )
 
 func LDSubsystemInit() (*net.Conn, error) {
