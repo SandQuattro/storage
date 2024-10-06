@@ -48,13 +48,11 @@ Graceful shutdown
 Using Makefile:  make rebuild, restart, run, etc
 
 ### TODO
-
-Communication Bus: Asynq (Redis-based async queue) for incidents notification by telegram, sending emails, etc. 
-
-Migrations: golang-migrate
-
-pprof profiling in debug mode
-
-SIGHUP signal config reloading
-
-Teler WAF (Intrusion Detection Middleware) https://github.com/kitabisa/teler-waf.git
+- [x] combine backend and frontend into one application
+- [ ] add docker-compose multistage projct building 
+- [ ] migrate to fiber framework
+- [ ] Communication Bus: Asynq (Redis-based async queue) for incidents notification by telegram, sending emails, etc.
+- [ ] Migrations: golang-migrate
+- [ ] pprof profiling in debug mode
+- [ ] SIGHUP signal config reloading
+- [ ] Teler WAF (Intrusion Detection Middleware) https://github.com/kitabisa/teler-waf.git

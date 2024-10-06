@@ -3,7 +3,7 @@ package db
 import (
 	"fmt"
 
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	logdoc "github.com/SandQuattro/logdoc-go-appender/logrus"
 	"github.com/gurkankaymak/hocon"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"

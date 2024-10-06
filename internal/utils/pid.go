@@ -4,7 +4,7 @@ import (
 	"os"
 	"strconv"
 
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	logdoc "github.com/SandQuattro/logdoc-go-appender/logrus"
 )
 
 func CreatePID() {

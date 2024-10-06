@@ -1,0 +1,232 @@
+body {
+  background-color: #f1f1f1;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.Home {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 530px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper header {
+  color: #6990f2;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wrapper .upload {
+  user-select: none;
+  height: 137px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px dashed #6990f2;
+}
+
+.upload.drag {
+  opacity: 0.6;
+}
+
+.upload img {
+  width: 60px;
+}
+
+.upload span {
+  text-align: center;
+  color: #6990f2;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.uploadHandler {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  align-self: center;
+  cursor: pointer;
+  padding: 15px 40px;
+  border-radius: 8px;
+  border: 0;
+  color: #fff;
+  max-width: 300px;
+  background-color: #6990f2;
+}
+
+.uploadHandler.cancel {
+  background-color: #d85757;
+}
+
+.uploadHandler:hover {
+  background-color: #577cd8;
+}
+
+.uploadHandler.disable {
+  opacity: 0.6;
+}
+
+.uploadHandler img {
+  width: 16px;
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+}
+
+.wssStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.wssStatus .title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.details__lower {
+  height: 16px;
+}
+.name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 130px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.percent {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.separator {
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 3px;
+  height: 3px;
+  border-radius: 100px;
+  background-color: #404040;
+}
+
+.details > div {
+  display: flex;
+  align-items: center;
+}
+
+.details .status {
+  max-width: none;
+}
+
+.size {
+  font-size: 12px;
+}
+
+.content .mark {
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  right: 0px;
+}
+
+section .row {
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  background: #e9f0ff;
+  list-style: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section .row i {
+  color: #6990f2;
+  font-size: 30px;
+}
+
+.progress-area .row .content {
+  position: relative;
+  width: 100%;
+  margin-left: 15px;
+}
+.progress-area .details {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  gap: 8px;
+}
+.progress-area .content .progress-bar {
+  height: 6px;
+  width: 100%;
+  margin-bottom: 4px;
+  background: #fff;
+  border-radius: 30px;
+}
+.content .progress-bar .progress {
+  height: 100%;
+  width: 0%;
+  background: #6990f2;
+  border-radius: inherit;
+}
+.uploaded-area {
+  max-height: 232px;
+  overflow-y: scroll;
+}
+.uploaded-area.onprogress {
+  max-height: 150px;
+}
+.uploaded-area::-webkit-scrollbar {
+  width: 0px;
+}
+.uploaded-area .row .content {
+  display: flex;
+  align-items: center;
+}
+.uploaded-area .row .details {
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+}
+.uploaded-area .row .details .size {
+  color: #404040;
+  font-size: 11px;
+}
+.uploaded-area i.fa-check {
+  font-size: 16px;
+}

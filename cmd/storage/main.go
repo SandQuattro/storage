@@ -1,6 +1,8 @@
 package main
 
 import (
+	"demo-storage/internal/pkg/db"
+	"demo-storage/internal/pkg/logging"
 	"flag"
 	"fmt"
 	"log"
@@ -8,14 +10,12 @@ import (
 	"runtime"
 
 	"demo-storage/internal/config"
-	"demo-storage/internal/db"
-	"demo-storage/internal/logging"
 	"demo-storage/internal/pkg/app"
 	"demo-storage/internal/utils"
 	"demo-storage/internal/utils/gs"
 
-	"github.com/LogDoc-org/logdoc-go-appender/common"
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	"github.com/SandQuattro/logdoc-go-appender/common"
+	logdoc "github.com/SandQuattro/logdoc-go-appender/logrus"
 	"github.com/jmoiron/sqlx"
 )
 
@@ -96,5 +96,5 @@ func main() {
 			logger.Fatal(err)
 		}
 	}()
-	gs.GraceShutdown(a)
+	gs.GracefulShutdown(a)
 }

@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	"demo-storage/internal/app/structs"
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	logdoc "github.com/SandQuattro/logdoc-go-appender/logrus"
 	"github.com/jmoiron/sqlx"
 )
 

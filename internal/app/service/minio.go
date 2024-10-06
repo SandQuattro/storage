@@ -9,7 +9,7 @@ import (
 	"demo-storage/internal/app/repository"
 	"demo-storage/internal/app/structs"
 
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	logdoc "github.com/SandQuattro/logdoc-go-appender/logrus"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"

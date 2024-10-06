@@ -14,7 +14,7 @@ import (
 	"demo-storage/internal/app/mv"
 	minio "demo-storage/internal/app/service"
 
-	logdoc "github.com/LogDoc-org/logdoc-go-appender/logrus"
+	logdoc "github.com/SandQuattro/logdoc-go-appender/logrus"
 	"github.com/gurkankaymak/hocon"
 	"github.com/jmoiron/sqlx"
 	"github.com/labstack/echo-contrib/echoprometheus"
