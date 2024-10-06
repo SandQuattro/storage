@@ -1,11 +1,31 @@
 #
-# First stage:
+# First stage: 
+# Building a frontend.
+#
+
+FROM alpine:3.20 AS frontend
+
+# Move to a working directory (/static).
+WORKDIR /static
+
+# https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported
+ENV NODE_OPTIONS=--openssl-legacy-provider
+# Install npm (with latest nodejs) and yarn (globally, in silent mode).
+RUN apk add --update nodejs npm && \
+    npm i -g -s --unsafe-perm yarn
+
+# Copy only ./ui folder to the working directory.
+COPY ui .
+
+# Run yarn scripts (install & build).
+RUN yarn install && yarn build
+
+#
+# Second stage: 
 # Building a backend.
 #
 
-FROM golang:1.21-alpine AS backend
-
-LABEL authors="sandquattro"
+FROM golang:1.22.8-alpine AS backend
 
 # Move to a working directory (/build).
 WORKDIR /build
@@ -18,7 +38,7 @@ RUN go mod download
 COPY . .
 
 # Copy frontend static files from /static to the root folder of the backend container.
-# COPY --from=frontend ["/static/build", "ui/build"]
+COPY --from=frontend ["/static/build", "ui/build"]
 
 # Set necessary environmet variables needed for the image and build the server.
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
@@ -27,7 +47,7 @@ ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 RUN go build -ldflags="-s -w" -o demo-storage ./cmd/demo-storage
 
 #
-# Third stage:
+# Third stage: 
 # Creating and running a new scratch container with the backend binary.
 #
 
